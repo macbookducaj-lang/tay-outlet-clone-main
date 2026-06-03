@@ -15,7 +15,7 @@ export function PumaBanner() {
       
       {/* Puma shoes image */}
       <Image
-        src="/images/puma-mb05-banner.png"
+        src="/puma-mb05-banner.png.png"
         alt="Puma MB05 Collection"
         fill
         className="object-contain object-center z-10"
