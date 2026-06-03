@@ -17,6 +17,7 @@ export function HeroBanner() {
         fill
         className="object-cover object-center"
         priority
+        unoptimized
       />
       
       {/* 
