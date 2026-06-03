@@ -20,6 +20,7 @@ export function PumaBanner() {
         fill
         className="object-contain object-center z-10 p-4 md:p-8"
         priority
+        unoptimized 
       />
       
       {/* Effet d'ombre adapté : plus sombre en bas sur mobile pour lire le texte, latéral sur PC */}
