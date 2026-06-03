@@ -14,7 +14,7 @@ export function HeroBanner() {
         {/* Left side - People image */}
         <div className="relative h-full overflow-hidden">
           <Image
-            src="/images/hero-summer-left.png"
+            src="/hero-summer.png.png"
             alt="Collection ete - Modeles avec sandales"
             fill
             className="object-cover"
