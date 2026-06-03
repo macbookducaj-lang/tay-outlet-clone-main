@@ -3,10 +3,8 @@ import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
 
 export function NikeCollection() {
-  const context = useLanguage()
-  if (!context) return null
-  const { t } = context
-
+  const { t } = useLanguage()
+  
   return (
     <section className="py-12 px-4 max-w-[1440px] mx-auto">
       <h2 className="text-2xl font-black uppercase mb-8">{t("nikeCollection")}</h2>
