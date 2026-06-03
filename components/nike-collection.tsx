@@ -20,6 +20,7 @@ export function NikeCollection() {
             fill
             className="object-cover object-center"
             priority
+            unoptimized
           />
           
           {/* Dégradé adapté : de bas en haut sur mobile, de gauche à droite sur PC */}
