@@ -1,8 +1,11 @@
+"use client"
+import Link from "next/link"
+import { useLanguage } from "@/lib/language-context"
+
 export function PumaBanner() {
   const { t } = useLanguage()
   return (
     <section className="relative w-full h-[400px] bg-gradient-to-br from-orange-500 to-blue-700">
-      {/* Ici on utilise object-contain pour que la chaussure ne soit jamais coupée */}
       <img 
         src="/puma-mb05-banner.png.png" 
         alt="Puma" 
