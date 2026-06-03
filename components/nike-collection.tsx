@@ -1,15 +1,16 @@
 "use client"
 import Link from "next/link"
-import { useLanguage } from "@/lib/language-context" // IMPORT ESSENTIEL
+import { useLanguage } from "@/lib/language-context"
 
 export function NikeCollection() {
-  const { t } = useLanguage() // UTILISATION DE T
-  
+  const context = useLanguage()
+  if (!context) return null
+  const { t } = context
+
   return (
     <section className="py-12 px-4 max-w-[1440px] mx-auto">
       <h2 className="text-2xl font-black uppercase mb-8">{t("nikeCollection")}</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {/* Exemple d'affichage, ajuste selon ton besoin */}
         <div className="bg-secondary h-64 rounded-lg flex items-center justify-center">
           <p className="font-bold">Nike Air Max</p>
         </div>
