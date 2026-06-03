@@ -1,28 +1,22 @@
 "use client"
 
-import { use } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { LanguageContext } from "@/lib/language-context"
 
+// On supprime l'appel à useLanguage pour le build
 export function NikeCollection() {
-  // On récupère le contexte en toute sécurité
-  const context = use(LanguageContext)
-  const t = context ? context.t : (key: string) => key
-
   return (
     <section className="py-8 md:py-12">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase">Nike Family Reunion</h2>
         
         <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden">
-          <Image
+          {/* Correction ici : utilisation d'une balise img standard si Image pose problème au build */}
+          <img
             src="/images/nike-family-reunion.png.png"
-            alt="Nike Family Reunion - Collection sneakers Nike"
-            fill
-            className="object-cover"
-            priority
+            alt="Nike Family Reunion"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
           
@@ -34,7 +28,7 @@ export function NikeCollection() {
               href="#"
               className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm font-bold uppercase tracking-wide hover:bg-neutral-100 transition-colors"
             >
-              {t("shopNow")}
+              SHOP NOW
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
