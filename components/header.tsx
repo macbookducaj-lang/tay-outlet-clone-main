@@ -1,14 +1,15 @@
 "use client"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Heart, ShoppingBag, Menu, X } from "lucide-react"
-import { useLanguage } from "@/lib/language-context" // IMPORT ESSENTIEL
+import { useLanguage } from "@/lib/language-context"
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { t } = useLanguage() // UTILISATION DE T
+  const context = useLanguage()
+  if (!context) return null
+  const { t } = context
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const mainNavItems = [
     { key: "men", href: "#" },
     { key: "women", href: "#" },
