@@ -5,11 +5,9 @@ import { Heart, ShoppingBag, Menu, X } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function Header() {
-  const context = useLanguage()
-  if (!context) return null
-  const { t } = context
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { t } = useLanguage()
+
   const mainNavItems = [
     { key: "men", href: "#" },
     { key: "women", href: "#" },
