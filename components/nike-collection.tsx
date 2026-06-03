@@ -15,7 +15,7 @@ export function NikeCollection() {
         
         <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden">
           <Image
-            src="/images/nike-family-reunion.png"
+            src="/nike-family-reunion.png.png"
             alt="Nike Family Reunion - Collection sneakers Nike"
             fill
             className="object-cover"
