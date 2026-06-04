@@ -120,52 +120,52 @@ export default function Home() {
     <main className="min-h-screen bg-background w-full overflow-x-hidden">
       <Header />
       
-      {/* Hero Section - Responsive */}
-      <div className="w-full max-w-full">
+      {/* Hero Section */}
+      <section className="w-full">
         <HeroBanner />
-      </div>
+      </section>
       
-      {/* New Trends Carousel - Responsive */}
-      <div className="w-full px-2 sm:px-4 md:px-6">
+      {/* New Trends Carousel */}
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductCarousel 
           title={t("newTrends")} 
           products={newTrendsProducts} 
         />
-      </div>
+      </section>
       
-      {/* Nike Collection Section - Responsive */}
-      <div className="w-full max-w-full">
+      {/* Nike Collection Section */}
+      <section className="w-full">
         <NikeCollection />
-      </div>
+      </section>
       
-      {/* Discounts Section - Responsive */}
-      <div className="w-full px-2 sm:px-4 md:px-6">
+      {/* Discounts Section */}
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <DiscountsSection />
-      </div>
+      </section>
       
-      {/* Puma Banner - Responsive */}
-      <div className="w-full max-w-full">
+      {/* Puma Banner */}
+      <section className="w-full">
         <PumaBanner />
-      </div>
+      </section>
       
-      {/* Silver Sneakers Carousel - Responsive */}
-      <div className="w-full px-2 sm:px-4 md:px-6">
+      {/* Silver Sneakers Carousel */}
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductCarousel 
           title={t("silverSneakers")} 
           products={silverSneakersProducts}
           showViewAll={true}
         />
-      </div>
+      </section>
       
-      {/* Brands Section - Responsive */}
-      <div className="w-full px-2 sm:px-4 md:px-6">
+      {/* Brands Section */}
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <BrandsSection />
-      </div>
+      </section>
       
-      {/* Product Grid - Responsive */}
-      <div className="w-full px-2 sm:px-4 md:px-6">
+      {/* Product Grid */}
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductGrid />
-      </div>
+      </section>
       
       {/* Footer */}
       <Footer />
