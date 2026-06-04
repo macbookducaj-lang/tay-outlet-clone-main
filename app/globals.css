@@ -123,12 +123,57 @@
     @apply bg-background text-foreground;
   }
 }
-media (max-width: 768px) {
+
+/* Responsive images - Mobile optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
   img {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     width: 100% !important;
     height: auto !important;
+    object-fit: cover !important;
+  }
+  
+  /* Next.js Image component */
+  .next-image,
+  [class*="Image"] {
+    max-width: 100vw !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Prevent text overflow */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Container padding for mobile */
+  .container,
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
