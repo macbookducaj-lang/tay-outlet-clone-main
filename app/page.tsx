@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState, useEffect } from "react"
 import { Header } from "@/components/header"
@@ -17,19 +17,30 @@ export default function Home() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetch('https://api.kicksdb.com/v1/products', {
-      headers: {
-        'x-api-key': 'KICKS-79BA-708A-808F-3A7AA87F9F54',
-        'Content-Type': 'application/json'
+    const fetchProducts = async () => {
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPIDAPI_KEY || '',
+          'x-rapidapi-host': 'stockx-api.p.rapidapi.com'
+        }
+      };
+
+      try {
+        // Appel vers RapidAPI
+        const res = await fetch('https://stockx-api.p.rapidapi.com/v3/search?query=sneakers', options);
+        const data = await res.json();
+        
+        // On vérifie si l'API renvoie bien les produits
+        if (data && data.products) {
+          setProducts(data.products);
+        }
+      } catch (err) {
+        console.error("Erreur API RapidAPI:", err);
       }
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (Array.isArray(data)) {
-        setProducts(data)
-      }
-    })
-    .catch(err => console.error("Erreur API:", err))
+    };
+
+    fetchProducts();
   }, [])
   
   return (
@@ -43,7 +54,7 @@ export default function Home() {
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductCarousel 
           title={t("newTrends")} 
-          products={products.length > 0 ? products : []} 
+          products={products} 
         />
       </section>
       
@@ -62,7 +73,7 @@ export default function Home() {
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductCarousel 
           title={t("silverSneakers")} 
-          products={products.length > 0 ? products : []}
+          products={products}
           showViewAll={true}
         />
       </section>
