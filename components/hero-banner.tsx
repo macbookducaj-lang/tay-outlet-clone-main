@@ -1,24 +1,19 @@
 "use client"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function HeroBanner() {
   const { t } = useLanguage()
+  
   return (
-    <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-black overflow-hidden">
-      <Image 
-        src="/hero-summer.png.png" 
-        alt="Hero" 
-        fill
-        priority
-        // "object-contain" garantit que toute l'image est visible
-        // "bg-black" est déjà là pour combler les espaces vides si nécessaire
-        className="object-contain object-center" 
-        sizes="100vw"
-      />
+    <section 
+      className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-black overflow-hidden bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: "url('/hero-summer.png.png')" }}
+    >
+      {/* Overlay sombre pour assurer la lisibilité du texte */}
       <div className="absolute inset-0 bg-black/40" />
+      
       <div className="absolute bottom-8 sm:bottom-10 left-4 sm:left-6 md:left-16 right-4 sm:right-6 md:right-16">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-white uppercase mb-3 sm:mb-4 leading-tight">
           PAIR UP FOR SUMMER
