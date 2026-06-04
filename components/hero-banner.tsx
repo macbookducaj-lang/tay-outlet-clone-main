@@ -7,30 +7,25 @@ import { useLanguage } from "@/lib/language-context"
 export function HeroBanner() {
   const { t } = useLanguage()
   return (
-    <section className="relative w-full h-[60vh] md:h-[80vh] bg-black overflow-hidden">
-      {/* Affiché sur PC uniquement : L'image large */}
+    <section className="relative w-full h-[50vh] md:h-[80vh] bg-black overflow-hidden">
+      {/* 
+        Utilisation de "object-contain" pour que l'image soit entièrement visible 
+        sans être coupée, et "object-center" pour la centrer. 
+      */}
       <Image 
-        src="/hero-pc.jpg" 
-        alt="Hero PC" 
+        src="/hero-summer.png.png" 
+        alt="Hero" 
         fill
         priority
-        className="hidden md:block object-cover object-center"
+        className="object-contain object-center" 
         sizes="100vw"
       />
       
-      {/* Affiché sur Mobile uniquement : L'image verticale */}
-      <Image 
-        src="/hero-mobile.jpg" 
-        alt="Hero Mobile" 
-        fill
-        priority
-        className="md:hidden object-cover object-center"
-        sizes="100vw"
-      />
-
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Overlay sombre pour la lisibilité du texte */}
+      <div className="absolute inset-0 bg-black/40" />
       
-      <div className="absolute bottom-8 left-6 md:bottom-16 md:left-16">
+      {/* Texte et bouton */}
+      <div className="absolute bottom-8 left-4 md:bottom-16 md:left-16 right-4">
         <h1 className="text-3xl md:text-6xl font-black text-white uppercase mb-4 leading-tight">
           PAIR UP FOR SUMMER
         </h1>
