@@ -139,6 +139,11 @@ html, body {
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
+  /* Correction pour l'effet scroll du HeroBanner */
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+
   img {
     display: block !important;
     visibility: visible !important;
