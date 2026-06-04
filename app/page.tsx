@@ -117,39 +117,55 @@ export default function Home() {
   const { t } = useLanguage()
   
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background w-full overflow-x-hidden">
       <Header />
       
-      {/* Hero Section */}
-      <HeroBanner />
+      {/* Hero Section - Responsive */}
+      <div className="w-full max-w-full">
+        <HeroBanner />
+      </div>
       
-      {/* New Trends Carousel */}
-      <ProductCarousel 
-        title={t("newTrends")} 
-        products={newTrendsProducts} 
-      />
+      {/* New Trends Carousel - Responsive */}
+      <div className="w-full px-2 sm:px-4 md:px-6">
+        <ProductCarousel 
+          title={t("newTrends")} 
+          products={newTrendsProducts} 
+        />
+      </div>
       
-      {/* Nike Collection Section */}
-      <NikeCollection />
+      {/* Nike Collection Section - Responsive */}
+      <div className="w-full max-w-full">
+        <NikeCollection />
+      </div>
       
-      {/* Discounts Section */}
-      <DiscountsSection />
+      {/* Discounts Section - Responsive */}
+      <div className="w-full px-2 sm:px-4 md:px-6">
+        <DiscountsSection />
+      </div>
       
-      {/* Puma Banner */}
-      <PumaBanner />
+      {/* Puma Banner - Responsive */}
+      <div className="w-full max-w-full">
+        <PumaBanner />
+      </div>
       
-      {/* Silver Sneakers Carousel */}
-      <ProductCarousel 
-        title={t("silverSneakers")} 
-        products={silverSneakersProducts}
-        showViewAll={true}
-      />
+      {/* Silver Sneakers Carousel - Responsive */}
+      <div className="w-full px-2 sm:px-4 md:px-6">
+        <ProductCarousel 
+          title={t("silverSneakers")} 
+          products={silverSneakersProducts}
+          showViewAll={true}
+        />
+      </div>
       
-      {/* Brands Section */}
-      <BrandsSection />
+      {/* Brands Section - Responsive */}
+      <div className="w-full px-2 sm:px-4 md:px-6">
+        <BrandsSection />
+      </div>
       
-      {/* Product Grid */}
-      <ProductGrid />
+      {/* Product Grid - Responsive */}
+      <div className="w-full px-2 sm:px-4 md:px-6">
+        <ProductGrid />
+      </div>
       
       {/* Footer */}
       <Footer />
