@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Header } from "@/components/header"
 import { HeroBanner } from "@/components/hero-banner"
 import { ProductCarousel } from "@/components/product-carousel"
@@ -11,163 +12,69 @@ import { ProductGrid } from "@/components/product-grid"
 import { Footer } from "@/components/footer"
 import { useLanguage } from "@/lib/language-context"
 
-// Product data for carousels
-const newTrendsProducts = [
-  {
-    id: 1,
-    name: "Birkenstock Boston",
-    category: "Homme Tongues et Sandales",
-    price: 119.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zae4DSJHOH1zc0qWeYfD2Ivb30LyeM.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 2,
-    name: "Nike Air Max Tuned 1",
-    category: "Homme Chaussures",
-    price: 189.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zae4DSJHOH1zc0qWeYfD2Ivb30LyeM.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 3,
-    name: "On Cloudtilt",
-    category: "Homme Chaussures",
-    price: 169.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zae4DSJHOH1zc0qWeYfD2Ivb30LyeM.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 4,
-    name: "New Balance 740",
-    category: "Primaire-College Chaussures",
-    price: 99.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zae4DSJHOH1zc0qWeYfD2Ivb30LyeM.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 5,
-    name: "Nike P-6000",
-    category: "Primaire-College Chaussures",
-    price: 89.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zae4DSJHOH1zc0qWeYfD2Ivb30LyeM.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 6,
-    name: "Adidas Samba",
-    category: "Unisexe Chaussures",
-    price: 110.00,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zae4DSJHOH1zc0qWeYfD2Ivb30LyeM.png",
-    badge: "NOUVEAU",
-  },
-]
-
-const silverSneakersProducts = [
-  {
-    id: 1,
-    name: "New Balance 204L",
-    category: "Femme Chaussures",
-    price: 129.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-g8wCB1nko4tmsP989vjCJT4X0VYbSy.png",
-  },
-  {
-    id: 2,
-    name: "New Balance 740",
-    category: "Primaire-College Chaussures",
-    price: 99.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-g8wCB1nko4tmsP989vjCJT4X0VYbSy.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 3,
-    name: "Nike V5 Rnr",
-    category: "Femme Chaussures",
-    price: 89.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-g8wCB1nko4tmsP989vjCJT4X0VYbSy.png",
-    badge: "NOUVEAU",
-  },
-  {
-    id: 4,
-    name: "Nike Air Force 1 '07 Lx",
-    category: "Femme Chaussures",
-    price: 100.00,
-    originalPrice: 129.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-g8wCB1nko4tmsP989vjCJT4X0VYbSy.png",
-    badge: "ECONOMISE 29 EUR",
-    badgeColor: "red",
-  },
-  {
-    id: 5,
-    name: "Asics GEL-KAYANO",
-    category: "Femme Chaussures",
-    price: 169.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-g8wCB1nko4tmsP989vjCJT4X0VYbSy.png",
-  },
-  {
-    id: 6,
-    name: "Nike Air Max 90",
-    category: "Unisexe Chaussures",
-    price: 149.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-g8wCB1nko4tmsP989vjCJT4X0VYbSy.png",
-  },
-]
-
 export default function Home() {
   const { t } = useLanguage()
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    fetch('https://api.kicksdb.com/v1/products', {
+      headers: {
+        'x-api-key': 'KICKS-79BA-708A-808F-3A7AA87F9F54',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (Array.isArray(data)) {
+        setProducts(data)
+      }
+    })
+    .catch(err => console.error("Erreur API:", err))
+  }, [])
   
   return (
     <main className="min-h-screen bg-background w-full overflow-x-hidden">
       <Header />
       
-      {/* Hero Section */}
       <section className="w-full">
         <HeroBanner />
       </section>
       
-      {/* New Trends Carousel */}
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductCarousel 
           title={t("newTrends")} 
-          products={newTrendsProducts} 
+          products={products.length > 0 ? products : []} 
         />
       </section>
       
-      {/* Nike Collection Section */}
       <section className="w-full">
         <NikeCollection />
       </section>
       
-      {/* Discounts Section */}
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <DiscountsSection />
       </section>
       
-      {/* Puma Banner */}
       <section className="w-full">
         <PumaBanner />
       </section>
       
-      {/* Silver Sneakers Carousel */}
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductCarousel 
           title={t("silverSneakers")} 
-          products={silverSneakersProducts}
+          products={products.length > 0 ? products : []}
           showViewAll={true}
         />
       </section>
       
-      {/* Brands Section */}
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <BrandsSection />
       </section>
       
-      {/* Product Grid */}
       <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <ProductGrid />
       </section>
       
-      {/* Footer */}
       <Footer />
     </main>
   )
