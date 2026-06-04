@@ -123,12 +123,3 @@
     @apply bg-background text-foreground;
   }
 }
-media (max-width: 768px) {
-  img {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-}
