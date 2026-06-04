@@ -7,21 +7,21 @@ import { useLanguage } from "@/lib/language-context"
 export function HeroBanner() {
   const { t } = useLanguage()
   return (
-    <section className="relative w-full h-[50vh] md:h-[80vh] bg-black overflow-hidden">
+    <section className="relative w-full h-[60vh] md:h-[80vh] bg-black overflow-hidden">
       {/* 
-        Utilisation de "object-contain" pour que l'image soit entièrement visible 
-        sans être coupée, et "object-center" pour la centrer. 
+        Utilisation de 'object-cover' pour que l'image remplisse tout le cadre.
+        Sur mobile, cela coupera les bords mais supprimera les bandes noires.
       */}
       <Image 
         src="/hero-summer.png.png" 
         alt="Hero" 
         fill
         priority
-        className="object-contain object-center" 
+        className="object-cover object-center" 
         sizes="100vw"
       />
       
-      {/* Overlay sombre pour la lisibilité du texte */}
+      {/* Overlay sombre pour la lisibilité */}
       <div className="absolute inset-0 bg-black/40" />
       
       {/* Texte et bouton */}
