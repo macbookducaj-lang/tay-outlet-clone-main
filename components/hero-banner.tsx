@@ -13,9 +13,9 @@ export function HeroBanner() {
         alt="Hero" 
         fill
         priority
-        // "object-contain" affiche l'image en entier
-        // "bg-black" complète les zones vides (haut/bas ou côtés)
-        className="object-contain" 
+        // object-contain sur mobile (vue complète)
+        // md:object-cover sur PC (remplissage optimal)
+        className="object-contain md:object-cover object-center" 
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/40" />
