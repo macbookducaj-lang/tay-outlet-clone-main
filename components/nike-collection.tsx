@@ -9,12 +9,12 @@ export function NikeCollection() {
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <h2 className="text-xl md:text-2xl font-bold mb-6 uppercase">Nike Family Reunion</h2>
         
-        <div className="relative h-[400px] md:h-[600px] w-full overflow-hidden bg-gray-200">
+        <div className="relative h-auto md:h-[600px] w-full overflow-hidden bg-gray-200">
           {/* On utilise une balise img standard avec le chemin relatif à la racine publique */}
           <img
             src="/nike-family-reunion.png.png"
             alt="Nike Family Reunion"
-            className="w-full h-full object-cover"
+            className="w-full h-auto md:h-full object-contain md:object-cover"
             onError={(e) => {
               console.error("Erreur de chargement image :", e);
               (e.target as HTMLImageElement).style.display = 'none';
