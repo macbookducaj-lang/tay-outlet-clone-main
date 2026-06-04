@@ -17,7 +17,7 @@ import productsData from "../sneakers.json"
 export default function Home() {
   const { t } = useLanguage()
 
-  // On utilise directement productsData au lieu de l'état (state) API
+  // On utilise directement les données importées
   const products = productsData
 
   return (
@@ -55,7 +55,7 @@ export default function Home() {
         />
       </section>
       
-      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:px-6">
+      <section className="w-full px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
         <BrandsSection />
       </section>
       
