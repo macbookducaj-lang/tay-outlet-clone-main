@@ -13,7 +13,9 @@ export function HeroBanner() {
         alt="Hero" 
         fill
         priority
-        className="object-cover object-center"
+        // "object-contain" garantit que toute l'image est visible
+        // "bg-black" est déjà là pour combler les espaces vides si nécessaire
+        className="object-contain object-center" 
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-black/40" />
